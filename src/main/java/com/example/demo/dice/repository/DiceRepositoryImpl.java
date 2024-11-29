@@ -6,12 +6,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class DiceRepositoryImpl implements DiceRepository {
 
+    int count = 1;
     final int MIN = 1;
     final int MAX = 6;
     @Override
     public Dice rollDice() {
         int random = createRandomNumber();
-        Dice dice = new Dice(random);
+        Dice dice = new Dice(random, count++);
 
         return dice;
     }

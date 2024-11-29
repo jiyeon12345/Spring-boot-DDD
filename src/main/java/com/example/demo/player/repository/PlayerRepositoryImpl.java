@@ -1,6 +1,7 @@
 package com.example.demo.player.repository;
 
 import com.example.demo.player.entity.Player;
+import com.example.demo.player.entity.PlayerCreateVO;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -10,13 +11,13 @@ import java.util.List;
 public class PlayerRepositoryImpl implements PlayerRepository{
     static List<Player> playerList = new ArrayList<>();
     final String playerName = "player";
-    int playerCount = 0;
+    int playerCount = 1;
 
     @Override
-    public Player create() {
-        Player player = new Player(playerName +"-"+ playerCount++);
+    public PlayerCreateVO create(String nickname) {
+        Player player = new Player(playerCount++, nickname);
         playerList.add(player);
 
-        return player;
+        return new PlayerCreateVO(nickname, true);
     }
 }
