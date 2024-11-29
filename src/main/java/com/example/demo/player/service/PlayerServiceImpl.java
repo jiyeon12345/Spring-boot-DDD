@@ -6,6 +6,8 @@ import com.example.demo.player.repository.PlayerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PlayerServiceImpl implements PlayerService{
@@ -14,5 +16,10 @@ public class PlayerServiceImpl implements PlayerService{
     @Override
     public PlayerCreateVO createPlayer(String name) {
         return playerRepository.create(name);
+    }
+
+    @Override
+    public List<Player> findPlayerList() {
+        return playerRepository.getPlayerList();
     }
 }

@@ -20,4 +20,9 @@ public class PlayerRepositoryImpl implements PlayerRepository{
 
         return new PlayerCreateVO(nickname, true);
     }
+
+    @Override
+    public List<Player> getPlayerList() {
+        return playerList;
+    }
 }
